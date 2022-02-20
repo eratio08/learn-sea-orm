@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  pg:
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_DB: sea-orm
+      POSTGRES_USER: sea-orm
+    ports:
+      - 3002:5432
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 3003:8080
